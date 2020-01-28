@@ -1,3 +1,3 @@
-### World countries
+### World Countries Generator
 
-##### DEMO 
+##### DEMO https://ohotnikarturik.github.io/worldCountries-generator/
