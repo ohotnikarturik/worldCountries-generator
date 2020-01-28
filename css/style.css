@@ -1,0 +1,322 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  line-height: 1.42;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* to smooth fonts */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  background: url('../assets/img/hotel-wallpaper.png');
+  position: relative;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  z-index: 1000;
+  background-color: #212424;
+  height: 160px;
+  display: flex;
+  align-items: flex-end;
+  font-family: monospace;
+}
+
+.container__header {
+  position: relative;
+}
+
+.section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.form__field {
+  box-shadow: 0px 2px 15px 5px black;
+  display: flex;
+}
+
+#form {
+  height: 180px;
+  display: flex;
+  /*flex-direction: column;*/
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  background-color: #212424;
+}
+
+.color-letter {
+  color: red;
+}
+.title {
+  color: white;
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+  line-height: normal;
+}
+
+.form__row {
+  display: flex;
+}
+
+.form__block {
+  background-color: #312d3c;
+}
+
+.form__sign {
+  display: flex;
+  margin-right: 30px;
+  align-items: center;
+}
+
+.sign-title {
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+}
+
+#arrow {
+  fill: white;
+  width: 40px;
+  height: 40px;
+}
+
+.form__btns  {
+  display: flex;
+}
+
+.btn {
+  outline: none;
+  cursor: pointer;
+  padding: 20px 20px 20px 20px;
+  background-color: #312d3c;
+  color: white;
+  /*min-width: 70px;*/
+  font-weight: bold;
+  border: #32d3fc;
+  font-size: 18px;
+  font-family: Comic Sans MS, sans-serif;
+}
+
+.btn__1 {
+  border-radius: 5px 0 0 5px;
+  transition: .5s;
+  background-color: cornflowerblue;
+}
+
+.btn__1:hover {
+  background-color: white;
+  color: #e52e71;
+  border-radius: 5px 0 0 5px;
+}
+
+.btn__2 {
+  background-color: #e52e71;
+  transition: .5s;
+}
+
+.btn__2:hover {
+  background-color: white;
+  color: #e52e71;
+  border-radius: 0;
+}
+
+.active-on{
+  box-shadow: 0 2px 15px 5px white;
+  background-color: white;
+  color: #e52e71;
+  transition: .5s;
+
+}
+
+.input__box {
+  position: relative;
+}
+
+#input {
+  outline: none;
+  width: 300px;
+  padding: 20px 55px 20px 75px;
+  background-color: #312d3c;
+  color: #e52e71;
+  border-radius: 0 5px 5px 0;
+  font-weight: bold;
+  border: #312d3c;
+  font-size: 20px;
+}
+
+#magnifier {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.amount-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  font-family: monospace;
+  color: white;
+}
+
+.amount-block__title {
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid white;
+}
+
+.amount-block__number {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+#amount__img {
+  fill: white;
+  width: 45px;
+  height: 45px;
+}
+
+.sort {
+  margin-left: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sort__az {
+  width: 40px;
+  height: 40px;
+  fill: white;
+  transition: .5s;
+  cursor: pointer;
+}
+
+#sort__az:hover {
+  fill: #e52e71;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+#sort__za {
+  width: 40px;
+  height: 40px;
+  fill: white;
+  transition: .5s;
+  cursor: pointer;
+}
+
+#sort__za:hover {
+  fill: #e52e71;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: white;
+  font-weight: bold;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+  font-weight: bold;
+}
+
+::placeholder {
+  color: white;
+  font-weight: bold;
+}
+
+#banner {
+  margin-top: -3px;
+  width: 101%;
+}
+
+.countries-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.country-item {
+  background-color: #312d3c;
+  padding: 35px;
+  width: 250px;
+  height: 250px;
+  margin: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  box-shadow: 20px 10px 50px 10px black;
+}
+
