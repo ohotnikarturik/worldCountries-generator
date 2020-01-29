@@ -268,7 +268,7 @@ let hexaColor = () => {
   }
   return hexaColor;
 };
-
+// to set random colors for letter
 span.style.color = hexaColor();
 setInterval(() => {
   span.style.color = hexaColor();
@@ -290,14 +290,13 @@ addToList(countries);
 //to filter and get country by beginning letters of array
 let filterStartsWith = (array) => {
   const inputValue = document.querySelector('#input').value;
-  console.log(inputValue);
 
   let filteredArray = array.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase()));
 
   for (let elem of filteredArray) {
     let listItem = document.createElement('li');
     let length = filteredArray.length;
-    let amountNumber = amount.textContent = filteredArray.length;
+    amount.textContent = filteredArray.length;
     listItem.className = 'country-item';
     listItem.textContent = elem;
     listContainer.appendChild(listItem);
@@ -429,7 +428,6 @@ document.getElementById('input').oninput = () => {
   // to initialise filter include letters of array
   filterIncluded(countries)
 };
-
 
 // click to body for removing class active from btnIncluded or btnBeginning
 let toRemoveClassActive = (a, b) => {
