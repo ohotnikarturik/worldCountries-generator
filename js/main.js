@@ -255,27 +255,45 @@ const amount = document.querySelector('.amount-block__number');
 const btnBeginning = document.querySelector('.btn__1');
 const btnIncluded = document.querySelector('.btn__2');
 const header = document.querySelector('header');
+const span = document.querySelector('.span');
 
-// to add countries to list
+//get random colors
+let hexaColor = () => {
+  let hexaString = '0123456789adcdef';
+  let hexaColor = '#';
+
+  for (let i = 0; i < 6; i++) {
+    let index = Math.floor(Math.random() * hexaString.length);
+    hexaColor = hexaColor + hexaString[index]
+  }
+  return hexaColor;
+};
+
+span.style.color = hexaColor();
+setInterval(() => {
+  span.style.color = hexaColor();
+}, 2000);
+
+// to add list of countries by default
 let addToList = (array) => {
   for (let elem of array) {
     let countryItem = document.createElement('li');
     amount.textContent = array.length;
-
     countryItem.className = 'country-item';
     countryItem.textContent = elem;
     listContainer.appendChild(countryItem);
   }
 };
-// add default list
+// to initialise list of countries by default
 addToList(countries);
 
-//to filter to get beginning letters of array
+//to filter and get country by beginning letters of array
 let filterStartsWith = (array) => {
   const inputValue = document.querySelector('#input').value;
   console.log(inputValue);
 
   let filteredArray = array.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase()));
+
   for (let elem of filteredArray) {
     let listItem = document.createElement('li');
     let length = filteredArray.length;
@@ -283,70 +301,71 @@ let filterStartsWith = (array) => {
     listItem.className = 'country-item';
     listItem.textContent = elem;
     listContainer.appendChild(listItem);
+    // to initialise sort and reverse in filtered array
     toClickAz(filteredArray);
     toClickZa(filteredArray);
   }
-
+  // to set '0' if filter will not give coincidences
   if (filteredArray.length === 0) {
     amount.textContent = '0';
   }
 };
 
-//to filter to get included letters of array
+//to filter and get included letters of array
 let filterIncluded = (array) => {
   const inputValue = document.querySelector('#input').value;
+
   let filteredArray = array.filter((country) => country.toLowerCase().includes(inputValue.toLowerCase()));
+
   for (let elem of filteredArray) {
     let listItem = document.createElement('li');
     amount.textContent = filteredArray.length;
     listItem.className = 'country-item';
     listItem.textContent = elem;
     listContainer.appendChild(listItem);
+    // to initialise sort and reverse in filtered array
     toClickAz(filteredArray);
     toClickZa(filteredArray);
   }
-
+  // to set '0' if filter will not give coincidences
   if (filteredArray.length === 0) {
     amount.textContent = '0';
   }
 };
 
-
-
-//to clean list before event
+//to clean list of countries before event
 let cleanList = () => {
   if (listContainer.hasChildNodes()) {
     listContainer.textContent = '';
   }
 };
 
-//to click to btn 'Country names that beginning'
+// click to btn 'Country names that beginning'
 btnBeginning.addEventListener('click', (e) => {
   e.preventDefault();
-
   document.querySelector('#input').focus();
-
   //event to input and get included letters and words
   document.getElementById('input').oninput = () => {
+    //to initialise clean list of countries before event
     cleanList();
+    // to initialise filter  beginning letters of array
     filterStartsWith(countries)
   };
-
-  // to toggle class to active
+  // btn to toggle class to active
   btnBeginning.setAttribute('class', 'btn btn__1 active-on');
   btnIncluded.setAttribute('class', 'btn btn__2');
 
 });
 
-//to click to btn 'Country names that beginning'
+//click to btn 'Country names that include'
 btnIncluded.addEventListener('click', (e) => {
   e.preventDefault();
-
   document.querySelector('#input').focus();
-
   //event to input and get included letters and words
   document.getElementById('input').oninput = () => {
+    //to initialise clean list of countries before event
     cleanList();
+    // to initialise filter include letters of array
     filterIncluded(countries)
   };
   // to set class active to btnIncluded and remove from btnBeginning
@@ -388,6 +407,7 @@ let toClickAz = (array) => {
     addToList(array)
   };
 };
+//to initialise sort array from A to Z
 toClickAz(countries);
 
 // to click on button sort from Z-A
@@ -399,11 +419,14 @@ let toClickZa = (array) => {
     addToList(array);
   };
 };
+//to initialise sort array from Z to A
 toClickZa(countries);
 
 //by default event to input and get included letters and words
 document.getElementById('input').oninput = () => {
+  //to initialise clean list of countries before event
   cleanList();
+  // to initialise filter include letters of array
   filterIncluded(countries)
 };
 
@@ -419,9 +442,27 @@ let toRemoveClassActive = (a, b) => {
     btnIncluded.classList.remove('active-on');
   };
 } ;
+//to initialise removing class active from btnIncluded or btnBeginning
 toRemoveClassActive(listContainer, header);
 
-//amount to zero if zero , kye down
 
-//how to take active class when click to all body
+// event keydown
+document.getElementById('input').onkeydown = (event) => {
+  let isDigit = false;
+
+  if (event.key >= 0 || event.key <= 9) {
+    isDigit = true;
+  }
+
+  if(isDigit === true) {
+    event.preventDefault();
+  }
+};
+
+
+
+
+
+
+
 
